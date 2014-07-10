@@ -11,4 +11,4 @@ echo "$USER:$PASSWORD" | chpasswd
 
 sudo -u $USER xpra start :100
 
-sudo -u $USER DISPLAY=:100 android-studio
+sudo -u $USER DISPLAY=:100 /start_dev_env.sh

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTAINER_ID=$(docker run -d -P android-dev)
+CONTAINER_ID=$(docker run -d -P -t android-dev)
 PORT=$(docker port $CONTAINER_ID 22 | awk -F: '{print $2}')
 
 echo "Container: $CONTAINER_ID"

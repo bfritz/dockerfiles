@@ -22,6 +22,10 @@ RUN sudo aura -A --noconfirm \
 RUN pacman -S pwgen --noconfirm
 ADD startup.sh /
 
+# script to bootstrap dev environment upon container start
+RUN pacman -S tmux rxvt-unicode --noconfirm
+ADD start_dev_env.sh /
+
 # extra dev tools
 RUN pacman -S git \
   --noconfirm
