@@ -6,3 +6,6 @@ arch-aur: arch-latest
 
 arch-xpra: arch-aur
 	docker build -t bfritz/archlinux-xpra archlinux/xpra
+
+android-dev: arch-xpra
+	docker build -t android-dev android-dev
