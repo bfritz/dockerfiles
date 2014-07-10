@@ -4,7 +4,7 @@ FROM base/archlinux
 
 MAINTAINER Brad Fritz <brad@fewerhassles.com>
 
-RUN pacman -Sy
+RUN pacman -Syy
 
 # work around problems with filesystem package upgrade as
 # described at https://registry.hub.docker.com/u/base/arch/
