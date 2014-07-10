@@ -22,6 +22,10 @@ RUN sudo aura -A --noconfirm \
 RUN pacman -S pwgen --noconfirm
 ADD startup.sh /
 
+# extra dev tools
+RUN pacman -S git \
+  --noconfirm
+
 EXPOSE 22
 
 CMD ["/bin/bash", "/startup.sh"]
