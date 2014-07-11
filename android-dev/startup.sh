@@ -7,6 +7,8 @@ echo Password for user $USER is $PASSWORD
 useradd --create-home --home-dir /home/$USER --shell /bin/bash $USER
 echo "$USER:$PASSWORD" | chpasswd
 
+echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/android-dev
+
 /usr/sbin/dropbear -R
 
 DISPLAY=:100
