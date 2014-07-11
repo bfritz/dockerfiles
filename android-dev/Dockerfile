@@ -18,13 +18,11 @@ RUN sudo aura -A --noconfirm \
   android-sdk-build-tools \
   android-studio
 
-# pwgen for startup.sh script
-RUN pacman -S pwgen --noconfirm
+# pwgen and urxvt terminal for startup.sh script
+RUN pacman -S --noconfirm \
+  pwgen \
+  rxvt-unicode
 ADD startup.sh /
-
-# script to bootstrap dev environment upon container start
-RUN pacman -S tmux rxvt-unicode --noconfirm
-ADD start_dev_env.sh /
 
 # extra dev tools
 RUN pacman -S git \

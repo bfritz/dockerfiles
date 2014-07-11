@@ -9,6 +9,9 @@ echo "$USER:$PASSWORD" | chpasswd
 
 /usr/sbin/dropbear -R
 
-sudo -u $USER xpra start :100
+DISPLAY=:100
 
-sudo -u $USER DISPLAY=:100 /start_dev_env.sh
+sudo -u $USER xpra start $DISPLAY
+sleep 2  # give xpra a bit of time to start accepting connections
+
+sudo -u $USER /bin/sh -c "test -x /start_dev_env.sh && /start_dev_env.sh $DISPLAY || DISPLAY=$DISPLAY urxvt"

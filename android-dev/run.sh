@@ -8,6 +8,10 @@ echo "Attach with:"
 echo
 echo "  xpra attach ssh/dev@localhost:$PORT/100"
 echo
+echo "Run Android IDE with:"
+echo
+echo "  android-studio"
+echo
 
 # display username and password
 sleep 5
