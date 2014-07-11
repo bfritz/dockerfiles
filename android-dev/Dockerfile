@@ -24,10 +24,6 @@ RUN pacman -S --noconfirm \
   rxvt-unicode
 ADD startup.sh /
 
-# extra dev tools
-RUN pacman -S git \
-  --noconfirm
-
 EXPOSE 22
 
 CMD ["/bin/bash", "/startup.sh"]
