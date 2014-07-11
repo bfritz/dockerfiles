@@ -10,16 +10,17 @@ MAINTAINER Brad Fritz <brad@fewerhassles.com>
 # refresh package list so package installs below don't fail
 RUN pacman -Sy
 
+# build dependencies (AUR)
+# Install (big) android-platform-19 package first. MOAR caching!
+RUN sudo aura -A --noconfirm \
+  android-platform-19
+
 # build dependencies (non-AUR)
 RUN pacman -S --noconfirm \
   apache-ant \
   imagemagick \
   librsvg \
   wget
-
-# build dependencies (AUR)
-RUN sudo aura -A --noconfirm \
-  android-platform-19
 
 # start_dev_env.sh dependencies
 RUN pacman -S --noconfirm tmux
