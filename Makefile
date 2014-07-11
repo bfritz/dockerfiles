@@ -9,3 +9,6 @@ arch-xpra: arch-aur
 
 android-dev: arch-xpra
 	docker build -t android-dev android-dev
+
+android-dev-maxs: android-dev
+	docker build -t android-dev-maxs android-dev-maxs
