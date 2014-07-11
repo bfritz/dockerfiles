@@ -8,6 +8,9 @@ echo Password for user $USER is $PASSWORD
 useradd --create-home --home-dir /home/$USER --shell /bin/bash $USER
 echo "$USER:$PASSWORD" | chpasswd
 
+# make sure $USER owns his $HOME
+chown -R $USER:users /home/$USER
+
 # dev user can run any command with sudo without re-entering password
 echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/android-dev
 
