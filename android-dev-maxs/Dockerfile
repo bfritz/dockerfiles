@@ -14,7 +14,8 @@ RUN pacman -Sy
 RUN pacman -S --noconfirm \
   apache-ant \
   imagemagick \
-  librsvg
+  librsvg \
+  wget
 
 # build dependencies (AUR)
 RUN sudo aura -A --noconfirm \
