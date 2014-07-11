@@ -4,11 +4,14 @@ USER=dev
 PASSWORD=`pwgen -c -n -1 12`
 echo Password for user $USER is $PASSWORD
 
+# add dev user and set password
 useradd --create-home --home-dir /home/$USER --shell /bin/bash $USER
 echo "$USER:$PASSWORD" | chpasswd
 
+# dev user can run any command with sudo without re-entering password
 echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/android-dev
 
+# start lightweight sshd daemon
 /usr/sbin/dropbear -R
 
 DISPLAY=:100
