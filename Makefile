@@ -18,3 +18,9 @@ wheezy-latest:
 
 wheezy-pkg-dev: wheezy-latest
 	docker build -t bfritz/debian-wheezy-pkg-dev debian/wheezy/package-dev
+
+wheezy-collectd: wheezy-pkg-dev
+	docker build -t wheezy-collectd debian/wheezy/collectd
+	docker run wheezy-collectd > collectd_debs.tar.gz
+	@echo "Packages copied to collectd_debs.tar.gz"
+	tar tfz collectd_debs.tar.gz
