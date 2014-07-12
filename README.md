@@ -11,3 +11,8 @@ connect to it with Xpra:
     ./android-dev/run.sh
 
     xpra attach ssh/dev@localhost:$PORT/100  # per output of run.sh above
+
+Backport collectd 5.4.1 to Debian Wheezy and dump packages into
+`collectd_debs.tar.gz`:
+
+    make wheezy-collectd
