@@ -12,3 +12,6 @@ android-dev: arch-xpra
 
 android-dev-maxs: android-dev
 	docker build -t android-dev-maxs android-dev-maxs
+
+wheezy-latest:
+	docker build -t bfritz/debian-wheezy:latest debian/wheezy/latest
