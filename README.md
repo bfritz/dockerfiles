@@ -2,7 +2,10 @@
 
 Use at your own risk. May eat your pets or small children.
 
-Examples:
+### Examples ###
+
+Build container for Android development with Android Studio and
+connect to it with Xpra:
 
     make android-dev
     ./android-dev/run.sh
