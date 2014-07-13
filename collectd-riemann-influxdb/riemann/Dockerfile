@@ -18,7 +18,7 @@ RUN cd /tmp \
 
 ADD riemann.config /etc/riemann/
 
-EXPOSE 5555
+EXPOSE 5555 5556
 
 # set WORKDIR to /tmp so riemann user can riemann.log
 WORKDIR /tmp
