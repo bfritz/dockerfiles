@@ -1,4 +1,4 @@
-# riemann-dash dashboard served on port 4567
+# riemann-dash dashboard served on 0.0.0.0:4567
 
 FROM bfritz/debian-wheezy:latest
 
@@ -13,6 +13,10 @@ RUN apt-get update \
 
 RUN gem install riemann-dash --no-rdoc --no-ri
 
+RUN mkdir -p /srv/riemann-dash
+ADD config.rb /srv/riemann-dash/
+
 EXPOSE 4567
 
-CMD ["riemann-dash"]
+WORKDIR /srv/riemann-dash
+CMD ["riemann-dash", "config.rb"]
