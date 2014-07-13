@@ -16,6 +16,9 @@ android-dev-maxs: android-dev
 wheezy-latest:
 	docker build -t bfritz/debian-wheezy:latest debian/wheezy/latest
 
+wheezy-openjdk7: wheezy-latest
+	docker build -t bfritz/debian-wheezy-openjdk7 debian/wheezy/openjdk7
+
 wheezy-pkg-dev: wheezy-latest
 	docker build -t bfritz/debian-wheezy-pkg-dev debian/wheezy/package-dev
 
