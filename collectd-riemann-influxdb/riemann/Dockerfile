@@ -18,4 +18,6 @@ RUN cd /tmp \
 
 ADD riemann.config /etc/riemann/
 
+EXPOSE 5555
+
 CMD ["sudo", "-u", "riemann", "/usr/bin/riemann", "/etc/riemann/riemann.config"]
