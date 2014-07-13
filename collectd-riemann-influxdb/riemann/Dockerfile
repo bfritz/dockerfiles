@@ -20,4 +20,7 @@ ADD riemann.config /etc/riemann/
 
 EXPOSE 5555
 
+# set WORKDIR to /tmp so riemann user can riemann.log
+WORKDIR /tmp
+
 CMD ["sudo", "-u", "riemann", "/usr/bin/riemann", "/etc/riemann/riemann.config"]
