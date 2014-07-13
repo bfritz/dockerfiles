@@ -17,5 +17,6 @@ RUN dpkg -i /tmp/collectd/collectd-core_*.deb
 RUN dpkg -i /tmp/collectd/collectd_*.deb
 
 ADD collectd.conf /etc/collectd/
+ADD collectd-riemann.conf /etc/collectd/collectd.conf.d/
 
 CMD ["/usr/sbin/collectd", "-f"]
