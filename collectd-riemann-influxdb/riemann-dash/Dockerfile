@@ -15,8 +15,10 @@ RUN gem install riemann-dash --no-rdoc --no-ri
 
 RUN mkdir -p /srv/riemann-dash
 ADD config.rb /srv/riemann-dash/
+ADD config.json /srv/riemann-dash/
+ADD start.sh /srv/riemann-dash/
 
 EXPOSE 4567
 
 WORKDIR /srv/riemann-dash
-CMD ["riemann-dash", "config.rb"]
+CMD ["/srv/riemann-dash/start.sh"]

@@ -1,0 +1,27 @@
+{
+  "server": "RIEMANN_IP:5556",
+  "server_type": "ws",
+  "workspaces": [
+    {
+      "name": "Riemann",
+      "view": {
+        "type": "Balloon",
+        "weight": 1,
+        "child": {
+          "type": "VStack",
+          "weight": 1,
+          "children": [
+            {
+              "type": "Log",
+              "weight": 1,
+              "title": "collectd events",
+              "query": "tagged \"collectd\"",
+              "lines": "100"
+            }
+          ]
+        }
+      },
+      "id": "7219e75ef6ded3c6a62476c0399b9a6f112fff3a"
+    }
+  ]
+}
