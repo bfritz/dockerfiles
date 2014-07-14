@@ -16,6 +16,11 @@ RUN cd /tmp \
   && sha1sum --check riemann_0.2.5_all.deb.sha1 \
   && dpkg -i riemann_0.2.5_all.deb
 
+RUN mkdir -p /srv/riemann
+ADD riemann-extra-0.2.4-e4dafec6.jar /srv/riemann/
+RUN echo "EXTRA_CLASSPATH=/srv/riemann/riemann-extra-0.2.4-e4dafec6.jar" \
+  >> /etc/default/riemann
+
 ADD riemann.config /etc/riemann/
 
 EXPOSE 5555 5556
