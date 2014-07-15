@@ -28,7 +28,7 @@ wheezy-collectd: wheezy-pkg-dev
 	@echo "Packages copied to collectd_debs.tar.gz"
 	tar tfz collectd_debs.tar.gz
 
-collectd-riemann-influxdb: wheezy-collectd
+collectd-riemann-influxdb: wheezy-collectd wheezy-openjdk7
 	cp collectd_debs.tar.gz collectd-riemann-influxdb/collectd/
 	docker build -t cri-collectd collectd-riemann-influxdb/collectd
 	docker build -t cri-riemann  collectd-riemann-influxdb/riemann
