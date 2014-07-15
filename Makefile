@@ -29,6 +29,7 @@ wheezy-collectd: wheezy-pkg-dev
 	tar tfz collectd_debs.tar.gz
 
 collectd-riemann-influxdb: wheezy-collectd
+	cp collectd_debs.tar.gz collectd-riemann-influxdb/collectd/
 	docker build -t cri-collectd collectd-riemann-influxdb/collectd
 	docker build -t cri-riemann  collectd-riemann-influxdb/riemann
 	docker build -t cri-riemann-dash  collectd-riemann-influxdb/riemann-dash
