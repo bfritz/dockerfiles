@@ -20,7 +20,8 @@ RUN curl -O http://s3.amazonaws.com/influxdb/influxdb_${VERSION}_amd64.deb
 RUN sha1sum --check influxdb_${VERSION}_amd64.deb.sha1 \
   && dpkg -i influxdb_${VERSION}_amd64.deb
 
-EXPOSE 8086
+# API is on port 8086 and admin UI is on port 8083
+EXPOSE 8083 8086
 
 VOLUME "/opt/influxdb/shared/data/db"
 CMD ["-config", "/opt/influxdb/shared/config.toml"]
