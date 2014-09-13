@@ -13,11 +13,13 @@ RUN pacman -Sy
 # build dependencies (AUR)
 # Install (big) android-platform-19 package first. MOAR caching!
 RUN sudo aura -A --noconfirm \
-  android-platform-19
+  android-platform-19 \
+  python-gnupg
 
 # build dependencies (non-AUR)
 RUN pacman -S --noconfirm \
   apache-ant \
+  python-httplib2 \
   imagemagick \
   librsvg \
   wget
