@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.18
 
 RUN apk add --no-cache mopidy py3-pip python3-dev && \
     python3 -m pip install Mopidy-MusicBox-Webclient Mopidy-Podcast Mopidy-Mobile
