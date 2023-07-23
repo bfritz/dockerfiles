@@ -20,6 +20,28 @@ build-mopidy:
         --export-cache type=inline \
         --output type=image,name=$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG,push=false
 
+build-radicale:
+  stage: build
+  image:
+    name: moby/buildkit:rootless
+    entrypoint: [ "sh", "-c" ]
+  variables:
+    BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
+  before_script:
+  - |
+    mkdir ~/.docker
+    auth=$(echo -n "$CI_REGISTRY_USER:$CI_REGISTRY_PASSWORD" | base64)
+    echo "{\"auths\": {\"$CI_REGISTRY\": {\"auth\": \"$auth\"}}}" > ~/.docker/config.json
+  script:
+  - |
+    buildctl-daemonless.sh build \
+        --frontend=dockerfile.v0 \
+        --local context=radicale \
+        --local dockerfile=radicale \
+        --import-cache type=registry,ref=$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG \
+        --export-cache type=inline \
+        --output type=image,name=$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG,push=false
+
 build-snapcast-server:
   stage: build
   image:

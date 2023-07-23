@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        image: [mopidy, snapcast-server]
+        image: [mopidy, radicale, snapcast-server]
     steps:
       - name: checkout
         uses: actions/checkout@v2
